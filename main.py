@@ -33,12 +33,13 @@ def buildHowToUse():
     st.text("1 - Select a dataset")
     st.text("2 - Select two columns (numerics only)")
     st.text("3 - Observe the chart with the linear regression")
+    st.text("4 - Try some examples at the bottom of the page")
 
 
 def buildInputs():
     global df, columns
     st.subheader("Inputs")
-    dataset_name = st.selectbox("Choose some dataset", getDatasetNames())
+    dataset_name = st.selectbox("Choose some dataset", getDatasetNames(), 9) # 9 is the index for 'cars'
     df = getDataFrameByDatasetName(dataset_name)
     columns = st.multiselect("Numeric columns", getNumericPartOfDataframe(df).columns)
 
